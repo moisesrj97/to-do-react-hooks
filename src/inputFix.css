@@ -1,0 +1,20 @@
+.MuiOutlinedInput-notchedOutline {
+  border: none !important;
+}
+
+.MuiInputLabel-outlined {
+  z-index: 1;
+  transform: translate(14px, 12px) scale(1) !important;
+  pointer-events: none;
+}
+
+.MuiInputLabel-shrink {
+  transform: translate(10px, -12px) scale(0.7) !important;
+  transform-origin: top left !important;
+}
+
+.MuiOutlinedInput-input {
+  padding: 10px !important;
+  color: rgba(0, 0, 0, 0.562);
+  font-weight: 300;
+}
