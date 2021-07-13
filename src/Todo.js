@@ -10,10 +10,17 @@ const useStyles = makeStyles(TodoStyles);
 export default function Todo(props) {
   const classes = useStyles();
   const [isEditing, setIsEditing] = useState(false);
+  const [isCrossed, setIsCrossed] = useState(false);
 
   return (
     <div className={classes.todo}>
-      {isEditing ? <EditInput text={props.text} onChange={props.editTodo} id={props.id} /> : <p>{props.text}</p>}
+      {isEditing ? (
+        <EditInput text={props.text} onChange={props.editTodo} id={props.id} />
+      ) : (
+        <p style={{ textDecoration: isCrossed ? 'line-through' : 'none' }} onClick={() => setIsCrossed(!isCrossed)}>
+          {props.text}
+        </p>
+      )}
       <div>
         <span
           className={classes.edit}

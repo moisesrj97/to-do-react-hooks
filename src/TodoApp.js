@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import TodoForm from './TodoForm';
@@ -10,7 +10,7 @@ const useStyles = makeStyles(TodoAppStyles);
 
 export default function TodoApp() {
   const classes = useStyles();
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(JSON.parse(window.localStorage.getItem('todos')) || []);
 
   const addTodo = (newTodo) => {
     let todo = { text: newTodo, id: uuidv4() };
@@ -31,6 +31,12 @@ export default function TodoApp() {
       })
     );
   };
+
+  useEffect(() => {
+    let todosDestructured = [...todos];
+    console.log(todosDestructured);
+    window.localStorage.setItem('todos', JSON.stringify(todosDestructured));
+  });
 
   return (
     <div className={classes.main}>

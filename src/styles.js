@@ -31,6 +31,7 @@ export const TodoAppStyles = {
 
     container: {
       width: '90%',
+      minHeight: '100vh',
     },
   },
 };
